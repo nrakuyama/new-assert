@@ -21,4 +21,18 @@ public with sharing class TestTargetClassTestDasai {
       System.assert(false);
     }
   }
+
+  @isTest
+  static void getErrorTest2() {
+    try {
+      TestTargetClass.getError();
+      System.assert(false);
+    } catch (Exception e) {
+      System.assertEquals(
+        HandledException.class,
+        Type.forName(e.getTypeName())
+      );
+      System.assertEquals('エラーだよ', e.getMessage());
+    }
+  }
 }

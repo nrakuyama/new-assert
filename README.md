@@ -1,18 +1,51 @@
-# Salesforce DX Project: Next Steps
+# System.assertEquals 書いてる人、全員バカです
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+![hiroyuki](https://dol.ismcdn.jp/mwimgs/d/5/750/img_88f89f52d1e1833ee8de671a178c006544566.jpg)
 
-## How Do You Plan to Deploy Your Changes?
+# Assert クラスの紹介
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Winter '23 から新しくテスト検証用の Assert クラスが追加された  
+https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_class_System_Assert.htm
 
-## Configure Your Salesforce DX Project
+## 主要メソッド
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+### `isNull(value)`, `isNotNull(value)`
 
-## Read All About It
+テスト対象が null, 非 null かを検証する場合に使用する
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+### `isTrue(condition)`, `isFalse(condition)`
+
+テスト対象が Boolean の場合に使用する
+
+### `isInstanceOfType(instance, expectedType)`
+
+型検証で使用する  
+第二引数は `クラス名.class` として Type インスタンスを渡す
+
+### `fail()`
+
+エラーテスト等でテストを失敗させる時に使用する
+
+### `areEqual(expected, actual)`
+
+上記のどれにも当てはまらない検証で使用する  
+`System.assertEquals()`と同じ
+
+## これいる？
+
+### `areNotEqual(notExpected, actual)`
+
+ギリ使うかも
+
+### `isNotInstanceOfType(instance, notExpectedType)`
+
+要らんでしょ
+
+## エラーメッセージの設定
+
+引数を付け足してエラーメッセージの設定が可能  
+デフォルトではクソみたいなメッセージを出す
+
+## あたりまえだけど
+
+案件の既存資産と相談してください

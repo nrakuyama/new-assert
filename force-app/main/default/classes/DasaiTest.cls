@@ -1,19 +1,19 @@
 @isTest
-public with sharing class TestTargetClassTestDasai {
+public with sharing class DasaiTest {
   @isTest
   static void getNullTest() {
-    System.assertEquals(null, TestTargetClass.getNull());
+    System.assertEquals(null, TargetClass.getNull());
   }
 
   @isTest
   static void getFalseTest() {
-    System.assert(!TestTargetClass.isOddNumber(12));
+    System.assert(!TargetClass.isOddNumber(12));
   }
 
   @isTest
   static void getErrorTest() {
     try {
-      TestTargetClass.getError();
+      TargetClass.throwHandledException();
       System.assert(false);
     } catch (HandledException e) {
       System.assertEquals('エラーだよ', e.getMessage());
@@ -25,7 +25,7 @@ public with sharing class TestTargetClassTestDasai {
   @isTest
   static void getErrorTest2() {
     try {
-      TestTargetClass.getError();
+      TargetClass.throwHandledException();
       System.assert(false);
     } catch (Exception e) {
       System.assertEquals(

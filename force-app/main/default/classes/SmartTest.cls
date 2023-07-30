@@ -1,19 +1,19 @@
 @isTest
-public with sharing class TestTargetClassTest {
+public with sharing class SmartTest {
   @isTest
   static void getNullTest() {
-    Assert.isNull(TestTargetClass.getNull());
+    Assert.isNull(TargetClass.getNull());
   }
 
   @isTest
   static void getFalseTest() {
-    Assert.isFalse(TestTargetClass.isOddNumber(12));
+    Assert.isFalse(TargetClass.isOddNumber(12));
   }
 
   @isTest
   static void getErrorTest() {
     try {
-      TestTargetClass.getError();
+      TargetClass.throwHandledException();
       Assert.fail();
     } catch (Exception e) {
       Assert.isInstanceOfType(e, HandledException.class);

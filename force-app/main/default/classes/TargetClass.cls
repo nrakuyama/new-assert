@@ -1,4 +1,4 @@
-public with sharing class TestTargetClass {
+public with sharing class TargetClass {
   public static Object getNull() {
     return 'null';
   }
@@ -7,7 +7,7 @@ public with sharing class TestTargetClass {
     return Math.mod(num, 2) == 0;
   }
 
-  public static void getError() {
+  public static void throwHandledException() {
     throw new AuraHandledException('エラーだよ');
   }
 }
